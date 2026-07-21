@@ -1,0 +1,145 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <properties>
+    <github.user>lithedream</github.user>
+    <github.repository>java-project-template</github.repository>
+    <project.name>Java Project Template</project.name>
+    <project.version>0.1.0</project.version>
+    <project.description>Project description</project.description>
+    <maven.compiler.release>8</maven.compiler.release>
+
+    <license.name>MIT License</license.name>
+    <license.url>https://opensource.org/licenses/MIT</license.url>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>io.github.${github.user}</groupId>
+  <artifactId>${github.repository}</artifactId>
+  <version>${project.version}</version>
+  <name>${project.name}</name>
+  <description>${project.description}</description>
+  <url>https://github.com/${github.user}/${github.repository}</url>
+
+  <licenses>
+    <license>
+      <name>${license.name}</name>
+      <url>${license.url}</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <scm>
+    <url>https://github.com/${github.user}/${github.repository}</url>
+    <connection>scm:git:https://github.com/${github.user}/${github.repository}.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com:${github.user}/${github.repository}.git</developerConnection>
+    <tag>HEAD</tag>
+  </scm>
+
+  <developers>
+    <developer>
+      <id>${github.user}</id>
+      <name>${github.user}</name>
+      <url>https://github.com/${github.user}</url>
+    </developer>
+  </developers>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>5.11.3</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.13.0</version>
+        <configuration>
+          <release>${maven.compiler.release}</release>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.5.2</version>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.3.1</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.11.2</version>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.sonatype.central</groupId>
+        <artifactId>central-publishing-maven-plugin</artifactId>
+        <version>0.10.0</version>
+        <extensions>true</extensions>
+        <configuration>
+          <publishingServerId>central</publishingServerId>
+          <autoPublish>true</autoPublish>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+
+  <profiles>
+    <profile>
+      <id>release</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>3.2.7</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <gpgArguments>
+                <arg>--pinentry-mode</arg>
+                <arg>loopback</arg>
+              </gpgArguments>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+</project>
