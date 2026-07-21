@@ -4,10 +4,10 @@
 
   <properties>
     <github.user>lithedream</github.user>
-    <github.repository>java-project-template</github.repository>
-    <project.name>Java Project Template</project.name>
+    <github.repository>lithescript</github.repository>
+    <project.name>LitheScript</project.name>
     <project.version>0.1.0</project.version>
-    <project.description>Project description</project.description>
+    <project.description>Library for executing simple Java-like scripts</project.description>
     <maven.compiler.release>8</maven.compiler.release>
 
     <license.name>MIT License</license.name>

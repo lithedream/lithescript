@@ -1,7 +1,19 @@
-# java-project-template
+# LitheScript
 
-Template for my Java projects, already configured for maven publishing (needs CENTRAL_USERNAME, CENTRAL_PASSWORD, GPG_PRIVATE_KEY, GPG_PASSPHRASE to actually publish).
+A tiny Java library that allows execution of limited Java-like scripts with good performances
 
-Default JDK is Java8.
+## Why
 
-If you need to use a newer JDK, edit maven.compiler.release in pom.xml, and fix java: [8, 11, 17, 21, 25] in ci.yml accordingly.
+I wished to execute Java-like code without dependency and bloat
+
+## How it works
+
+It compiles the String script to an immutable object, which can be then executed with the the desired parameters
+
+## Author
+
+- **lithedream**
+
+## License
+
+MIT

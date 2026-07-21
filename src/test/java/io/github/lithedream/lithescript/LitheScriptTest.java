@@ -1,10 +1,10 @@
-package io.github.lithedream.template;
+package io.github.lithedream.lithescript;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-class TemplateTest {
+class LitheScriptTest {
 
     @Test
     void test() {
